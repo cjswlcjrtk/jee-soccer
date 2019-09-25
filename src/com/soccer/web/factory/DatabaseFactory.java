@@ -1,5 +1,7 @@
 package com.soccer.web.factory;
 
+import com.soccer.web.enums.DB;
+
 public class DatabaseFactory{
 	
 //	public static DatabaseBean createDatabase(String vendor, String username, String password) {
@@ -31,12 +33,11 @@ public class DatabaseFactory{
 //				password);
 		
 		Database db = null;
-		
-		switch (vendor) {
-		case "oracle": db = new Oracle();break;
-		case "mariadb": db = new MariaDB();break;
-		case "h2": break;
-		case "db2": break;
+		switch (DB.valueOf(vendor.toUpperCase())) {
+		case ORACLE: db = new Oracle();break;
+		case MARIADB: db = new MariaDB();break;
+		case H2: break;
+		case DB2: break;
 
 		default:
 			break;

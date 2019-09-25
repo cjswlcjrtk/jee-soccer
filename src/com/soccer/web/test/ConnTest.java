@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.soccer.web.enums.DBDriver;
+import com.soccer.web.enums.DBUrl;
 import com.soccer.web.pool.Constants;
 
 public class ConnTest {
@@ -18,8 +20,8 @@ public class ConnTest {
 				username = "c##bit", 
 				password = "oracle";
 		try {
-			Class.forName(Constants.ORACLE_DRIVER);
-			conn = DriverManager.getConnection(Constants.ORACLE_URL, 
+			Class.forName(DBDriver.ORACLE_DRIVER.toString());
+			conn = DriverManager.getConnection(DBUrl.ORACLE_URL.toString(), 
 					Constants.USERNAME, Constants.PASSWORD);
 			if(conn != null) {
 				

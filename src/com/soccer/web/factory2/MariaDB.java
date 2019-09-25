@@ -1,4 +1,4 @@
-package com.soccer.web.factory;
+package com.soccer.web.factory2;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,15 +10,16 @@ import com.soccer.web.pool.Constants;
 public class MariaDB implements Database{
 
 	@Override
-	public Connection getConnection() {
+	public Connection getcConnection() {
 		Connection conn = null;
+		
 		try {
 			Class.forName(DBDriver.MARIA_DRIVER.toString());
 			conn = DriverManager.getConnection(DBUrl.MARIA_URL.toString(), 
 					Constants.USERNAME, Constants.PASSWORD);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}	
+		}
 		
 		return conn;
 	}

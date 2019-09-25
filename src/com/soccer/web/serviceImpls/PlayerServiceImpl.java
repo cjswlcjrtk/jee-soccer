@@ -3,7 +3,6 @@ package com.soccer.web.serviceImpls;
 import java.util.List;
 
 import com.soccer.web.daoImpls.PlayerDAOImpl;
-import com.soccer.web.daos.PlayerDAO;
 import com.soccer.web.domains.PlayerBean;
 import com.soccer.web.services.PlayerService;
 
@@ -17,12 +16,16 @@ public class PlayerServiceImpl implements PlayerService {
 	
 	private static PlayerServiceImpl instance = new PlayerServiceImpl();
 	
+	private static PlayerBean play = new PlayerBean();
+	
 	public static PlayerServiceImpl getInstance() {
 		System.out.println("instance");
 		return instance;
 	}
 	
 	private PlayerServiceImpl() {}
+	
+	
 
 	@Override
 	public List<String> findPositions() {
@@ -45,5 +48,12 @@ public class PlayerServiceImpl implements PlayerService {
 //		List<PlayerBean> players = 
 //				PlayerDaoImpl.getInstance().selectByTeamIdHeightName(param);
 		return PlayerDAOImpl.getInstance().selectByTeamIdHeightName(param);
+	}
+
+	@Override
+	public PlayerBean login(PlayerBean param) {
+		
+//		play = 
+		return null;
 	}
 }

@@ -9,8 +9,19 @@ public class PlayerBean implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private String playername,playerId,teamId,ePlayerName,nickname,joinYYYY
-				,position,backNo,nation,birthDate,solar,height,weghit;
+	private String playername, //id
+		playerId,
+		teamId,
+		ePlayerName,
+		nickname,
+		joinYYYY,
+		position,
+		backNo,
+		nation,
+		birthDate,
+		solar, //pw
+		height,
+		weghit;
 
 	public void setAttribute(String string, PlayerBean player) {
 		

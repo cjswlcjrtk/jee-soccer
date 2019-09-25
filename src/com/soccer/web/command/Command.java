@@ -8,18 +8,24 @@ import lombok.Data;
 
 @Data
 public class Command implements Order{
+	
 	protected HttpServletRequest request;
-	protected String action, page, view;
+	protected String action, domain, page, view;
 	
 	@Override
-	public void execute() throws Exception {
-		this.view = String.format(Constants.VIEW_PATH, page);		
+	public void excute() {		
+//		setDomain();
+//		setPage();
+		this.view = String.format(Constants.VIEW_PATH, page);
 	}
 	
-	public void setPage() {
-		System.out.println("########page##############" + page);
-		page = request.getParameter("page");
+	public void setDomain() {
+		String path = request.getServletPath();
+		domain = path.replace(".do", "");
+		domain = domain.substring(1);
 	}
-	
-
+//	
+//	public void setPage() {
+//		page = request.getParameter("page");
+//	}
 }
