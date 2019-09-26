@@ -1,6 +1,8 @@
 package com.soccer.web.daoImpls;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +22,36 @@ public class PlayerDAOImpl implements PlayerDAO{
 	private PlayerDAOImpl() {}
 
 	@Override
+	public PlayerBean selectByplayerIdSolar(PlayerBean param) {
+		
+		PlayerBean player = new PlayerBean();
+		
+		String sql = "select player_id, solar \r\n" + 
+				"from player where player_id like ? and solar like ? ";
+		try {
+			PreparedStatement stmt = DatabaseFactory
+					.createDatabase(Constants.VENDOR.toUpperCase())
+					.getConnection()
+					.prepareStatement(sql);
+			stmt.setString(1, param.getPlayerId());
+			stmt.setString(2, param.getSolar());	
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				player = new PlayerBean();
+				player.setPlayerId(rs.getString("PLAYER_ID"));
+				player.setSolar(rs.getString("SOLAR"));
+			}
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("반환된 결과값"+ player.toString());
+		return player;
+		
+		
+	}	
+	
+	@Override
 	public List<String> selectPositions() {
 		System.out.println("DAOImpl");
 		List<String> positions = new ArrayList<String>();
@@ -28,12 +60,6 @@ public class PlayerDAOImpl implements PlayerDAO{
 			String sql = "SELECT "
 					+ "DISTINCT (NVL(POSITION,'')) as position \r\n" + 
 					"FROM PLAYER";
-//			PreparedStatement stmt = DatabaseFactory
-//					.createDatabase("oracle", Constants.USERNAME,
-//							Constants.PASSWORD)
-//					.getConnection()
-//					.prepareStatement(sql);
-//			ResultSet rs = stmt.executeQuery();		
 			
 			ResultSet rs = DatabaseFactory
 					.createDatabase(Constants.VENDOR)
@@ -54,13 +80,40 @@ public class PlayerDAOImpl implements PlayerDAO{
 
 	@Override
 	public List<PlayerBean> selectfindByTeamIdPosition(PlayerBean param) {
-		
-		return null;
+		List<PlayerBean> list = new ArrayList<>();
+		return list;
 	}
 
 	@Override
 	public List<PlayerBean> selectByTeamIdHeightName(PlayerBean param) {
 		return null;
 	}
+
+	@Override
+	public List<PlayerBean> selectByMany(PlayerBean param) {
+		List<PlayerBean> player = new ArrayList<>();
+		
+		String sql = "";
+		try {
+			PreparedStatement stmt = DatabaseFactory
+					.createDatabase(Constants.VENDOR)
+					.getConnection()
+					.prepareStatement(sql);
+			stmt.setString(1, param.getPlayerId());
+			stmt.setString(2, param.getSolar());
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return player;
+	}
+
+	
+
+	
 
 }

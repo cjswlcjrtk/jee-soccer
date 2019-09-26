@@ -15,9 +15,7 @@ public class PlayerServiceImpl implements PlayerService {
 //	}
 	
 	private static PlayerServiceImpl instance = new PlayerServiceImpl();
-	
-	private static PlayerBean play = new PlayerBean();
-	
+		
 	public static PlayerServiceImpl getInstance() {
 		System.out.println("instance");
 		return instance;
@@ -51,9 +49,9 @@ public class PlayerServiceImpl implements PlayerService {
 	}
 
 	@Override
-	public PlayerBean login(PlayerBean param) {
-		
-//		play = 
-		return null;
+	public PlayerBean login(PlayerBean param) {	
+//		param.getPlayerId();
+//		param.getSolar();		
+		return PlayerDAOImpl.getInstance().selectByplayerIdSolar(param);
 	}
 }

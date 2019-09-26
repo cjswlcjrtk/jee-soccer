@@ -10,7 +10,7 @@ public enum DBUrl {
 		String url = "";
 		switch (this) {
 		case ORACLE_URL:
-			url = "dbc:oracle:thin:@localhost:1521:xe";
+			url = "jdbc:oracle:thin:@localhost:1521:xe";
 			break;
 		case MYSQL_URL:
 			url = "jdbc:mysqldb://localhost:1521";

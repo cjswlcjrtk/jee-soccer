@@ -8,6 +8,7 @@ public class Sender {
 	public static void forward(HttpServletRequest request,
 			HttpServletResponse response) {
 		try {
+			System.out.println("sender");
 			request.getRequestDispatcher(Receiver.cmd.getView())
 			.forward(request, response);
 		} catch (Exception e) {

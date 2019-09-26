@@ -5,7 +5,7 @@ import com.soccer.web.enums.Action;
 public class Commander {
 	
 	public static Command direct(HttpServletRequest request) {
-		Command cmd = new Command();
+		Command cmd = null;
 //		String action = request.getParameter("action").toUpperCase().toString();
 		
 		
@@ -16,6 +16,10 @@ public class Commander {
 		case MOVE:
 			cmd = new MoveCommand(request);
 			System.out.println("Commander");
+			break;
+		case LOGIN:
+			cmd = new LoginCommand(request);
+			System.out.println("LoginCommand");
 			break;
 
 		default:

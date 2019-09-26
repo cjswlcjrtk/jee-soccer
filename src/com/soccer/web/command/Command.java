@@ -11,12 +11,11 @@ public class Command implements Order{
 	
 	protected HttpServletRequest request;
 	protected String action, domain, page, view;
-	
 	@Override
-	public void excute() {		
-//		setDomain();
-//		setPage();
-		this.view = String.format(Constants.VIEW_PATH, page);
+	public void execute() {		
+		setDomain();
+		setPage();
+		this.view = String.format(Constants.SINGLE_PATH, page);
 	}
 	
 	public void setDomain() {
@@ -24,8 +23,8 @@ public class Command implements Order{
 		domain = path.replace(".do", "");
 		domain = domain.substring(1);
 	}
-//	
-//	public void setPage() {
-//		page = request.getParameter("page");
-//	}
+	
+	public void setPage() {
+		page = request.getParameter("page");
+	}
 }
