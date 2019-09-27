@@ -25,11 +25,8 @@ public class LoginCommand extends Command{
 		player.setSolar(solar);
 		player = PlayerServiceImpl.getInstance().login(player);
 		System.out.println("DB에서 커맨드로 전달된 로그인 객체 : " + player.toString());
-		if(player.getPlayerId()
-				.equals(PlayerDAOImpl
-						.getInstance()
-						.selectByplayerIdSolar(player)
-						.getPlayerId())) {
+		if(!player.getPlayerId()
+				.equals("")) {
 			setPage(request.getParameter("page"));
 		}else {
 			setPage("fail.jsp");

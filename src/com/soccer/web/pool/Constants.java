@@ -9,6 +9,5 @@ public class Constants {
 			USERNAME = "c##bit", 
 			PASSWORD = "oracle",
 			VENDOR = "oracle";
-	
 
 }

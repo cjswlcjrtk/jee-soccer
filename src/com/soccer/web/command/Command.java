@@ -10,12 +10,13 @@ import lombok.Data;
 public class Command implements Order{
 	
 	protected HttpServletRequest request;
-	protected String action, domain, page, view;
+	protected String action, domain, page, view, facade;
 	@Override
 	public void execute() {		
 		setDomain();
 		setPage();
-		this.view = String.format(Constants.SINGLE_PATH, page);
+		facade = "facade";
+		this.view = String.format(Constants.DOUBLE_PATH, facade, page);
 	}
 	
 	public void setDomain() {

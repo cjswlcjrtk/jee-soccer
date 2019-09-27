@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.soccer.web.command.Command;
 import com.soccer.web.command.Receiver;
 import com.soccer.web.command.Sender;
 
