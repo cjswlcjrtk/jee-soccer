@@ -3,6 +3,8 @@ var app = (()=>{
 		init : (ctx)=>{
 			$('#login_form').submit(()=>{
 				alert('form 태그 클릭!!');
+				alert(ctx + '/player.do');
+				ctx + '/player.do';
 			});
 			$('#a_join').click(()=>{
 				alert('회원가입 이동');
