@@ -6,11 +6,12 @@
 	<meta charset="UTF-8" />
 	<title>로그인</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="${js}/app.js"></script>
 </head>
 <body>
 <div id="wrapper" style="width: 100%; height: 100%">
 <img alt="" src="${img}/soccer.jpg" />
-	<form id="login_form" action="${ctx}/player.do">
+	<form id="login_form">
 	<input type="hidden" name="action" value="login"/>	
 	<input type="hidden" name="page" value="home"/>		
 		<table border="1" style="width:300px; height:200px; margin: 300px auto">
@@ -31,14 +32,10 @@
 			
 		</table>
 	</form>
-	<h3 style="width:300px; margin: 300px auto"><a id="a_join" href="">회원가입</a></h3>	
+	<h3 style="width:300px; margin: 300px auto"><a id="a_join" href="#">회원가입</a></h3>	
 </div>	
 <script>
-		
-$('#login_form').submit(function(){
-	alert('정보보기');
-});
-
+app.init('${ctx}');
 </script>
 </body>
 </html>

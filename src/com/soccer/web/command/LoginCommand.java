@@ -2,7 +2,6 @@ package com.soccer.web.command;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.soccer.web.daoImpls.PlayerDAOImpl;
 import com.soccer.web.domains.PlayerBean;
 import com.soccer.web.serviceImpls.PlayerServiceImpl;
 
