@@ -45,7 +45,7 @@ public class PlayerDAOImpl implements PlayerDAO{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("반환된 결과값"+ player.toString());
+//		System.out.println("반환된 결과값"+ player.toString());
 		return player;
 		
 		
