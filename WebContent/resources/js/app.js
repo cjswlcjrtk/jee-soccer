@@ -1,16 +1,13 @@
 var app = (()=>{
 	return {
-		init : (ctx)=>{	
-			playerService.login();				
-			$('#a_join').click(()=>{
-				alert('회원가입 이동');
-				location.assign(ctx + '/player.do?action=move&page=join');
-			});
-			$('#back_login').click(()=>{
-				alert('로그인페이지로 다시 이동');
-				location.assign(ctx + '/player.do?action=move&page=login');
-			});
-		} /* 메소드 이름을 이렇게 준다   */
+		init : (ctx)=>{
+			playerService.login(ctx);
+			playerService.join(ctx);
+			playerService.moveJoin(ctx);
+			playerService.position(ctx);
+			playerService.position_r(ctx);
+			playerService.searchPosition(ctx);
+		}
 	};
 })(); 
 /*$('#login_form').submit(()=>{
@@ -41,17 +38,64 @@ var player = (()=>{
 
 var playerService = (()=>{
 	return {
-		login: ()=>{
+		searchPosition: (ctx)=>{
+			$('#searchPosition_btn').click(()=>{
+					alert('여기까지 잘가나');
+					$('#searchPosition_form').attr('action', ctx + '/player.do');
+					$('#searchPosition_form').attr('method', 'POST');
+					$('#searchPosition_form').submit();					
+			});
+		},
+		position_r: (ctx)=>{
+			$('#position_r_main').click(()=>{
+					alert('여기까지 잘가나!!');
+					$('#position_form_r').attr('action', ctx + '/player.do');
+					$('#position_form_r').attr('method', 'POST');
+					$('#position_form_r').submit();
+			});
+		},
+		position: (ctx)=>{
+			$('#position_btn').click(()=>{
+					alert('여기까지 잘가나');
+					$('#position_form').attr('action', ctx + '/player.do');
+					$('#position_form').attr('method', 'POST');
+					$('#position_form').submit();					
+			});
+		},
+		login: (ctx)=>{
 			$('#login_btn').click(()=>{
 				if($('#username').val()==='' ||
 						$('#solar').val()===''){
 					alert('필수값이 없습니다.');
 				}else{
 					alert('입력한 아이디 값: '+$('#username').val());
-					$('#login_form').attr('action', '/jee-soccer/player.do');
+					$('#login_form').attr('action', ctx + '/player.do');
+					$('#login_form').attr('method', 'POST');
 					$('#login_form').submit();
 				}
 				
+			});
+		},
+		join: (ctx)=>{
+			$('#a_join').click(()=>{
+				if($('#username').val()==='' ||
+						$('#join_solar').val()===''){
+					alert('필수값이 없습니다.');
+				}else{
+					alert('입력한 아이디 값: '+$('#join_solar').val());
+					$('#join_form').attr('action', ctx + '/player.do');
+					$('#join_form').attr('method', 'POST');
+					$('#join_form').submit();
+				}
+				
+			});
+		},
+//		main: (ctx)=>{
+//			
+//		},
+		moveJoin: (ctx)=>{
+			$('#a_join').click(()=>{
+				location.assign(ctx+'/facade.do?action=move&page=join');
 			});
 		}
 	};

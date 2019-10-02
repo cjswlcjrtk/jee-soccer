@@ -12,6 +12,7 @@ public class LoginCommand extends Command{
 				? "login" : request.getParameter("action"));
 		System.out.println("LoginCommand");
 		setPage(request.getParameter("page"));
+		System.out.println("loginCommand1====="+request.getParameter("page"));
 		execute();
 	}
 	@Override
@@ -26,6 +27,7 @@ public class LoginCommand extends Command{
 //		System.out.println("DB에서 커맨드로 전달된 로그인 객체 : " + player.toString());
 				
 		setPage((player!=null) ? request.getParameter("page") : "login");
+		System.out.println("loginCommand2====="+request.getParameter("page"));
 		super.execute();
 	}
 

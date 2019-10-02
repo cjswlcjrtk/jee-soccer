@@ -11,15 +11,25 @@ public class Commander {
 		
 		switch (Action.valueOf(request.getParameter("action").toUpperCase())) {		
 		case SEARCH:
-			cmd = new SearchCommand();
+			break;
+		case CREATE:
+			cmd = new CreateCommand(request);
+			break;
+		case UPDATE:
+			break;
+		case DELETE:
 			break;
 		case MOVE:
 			cmd = new MoveCommand(request);
-			System.out.println("Commander");
+			System.out.println("MoveCommand");
 			break;
 		case LOGIN:
 			cmd = new LoginCommand(request);
 			System.out.println("LoginCommand");
+			break;
+		case POSITION:
+			cmd = new PositionCommand(request);
+			System.out.println("PositionCommand");
 			break;
 
 		default:

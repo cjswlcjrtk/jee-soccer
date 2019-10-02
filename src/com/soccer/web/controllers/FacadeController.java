@@ -19,31 +19,27 @@ public class FacadeController extends HttpServlet {
 		
 	}
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("파사드로 들어옴");
-//		HttpSession session = request.getSession();
-		for(Resources r : Resources.values()) {			
-//			request.getSession().setAttribute(r.toString().toLowerCase(),
-//						(r.toString().equals("CTX") 
-//						? request.getContextPath()
-//						: request.getContextPath() + "/resources/" + r.toString().toLowerCase())						
-//					);
-			
+		for(Resources r : Resources.values()) {					
 			request.getSession().setAttribute(r.toString().toLowerCase(),
 					request.getContextPath() + (r.toString().equals("CTX") 
 					? ""
 					: "/resources/" + r.toString().toLowerCase())						
-				);
-			
+				);			
 		}
-		
+		if(request.getParameter("page")==null) {
+			request.setAttribute("page", "login");
+		}else {
+			request.setAttribute("page", request.getParameter("page"));
+		}
 		
 		request
 			.getRequestDispatcher(
 					String.format(Constants.DOUBLE_PATH
 							,request.getServletPath()
 								.substring(1, request.getServletPath().indexOf("."))
-							, "login"))
+							, "main"))
 			.forward(request, response);
 	}
 

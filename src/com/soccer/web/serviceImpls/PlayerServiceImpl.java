@@ -54,4 +54,9 @@ public class PlayerServiceImpl implements PlayerService {
 //		param.getSolar();		
 		return PlayerDAOImpl.getInstance().selectByplayerIdSolar(param);
 	}
+
+	@Override
+	public boolean join(PlayerBean param) {
+		return PlayerDAOImpl.getInstance().insertPlayer(param);
+	}
 }

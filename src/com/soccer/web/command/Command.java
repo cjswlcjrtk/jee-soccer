@@ -10,19 +10,19 @@ import lombok.Data;
 public class Command implements Order{
 	
 	protected HttpServletRequest request;
-	protected String action, domain, page, view, facade;
+	protected String action, domain, page, view;
 	@Override
 	public void execute() {		
 		setDomain();
-		setPage();
-		facade = "facade";
-		this.view = String.format(Constants.DOUBLE_PATH, facade, page);
+		setPage();		
+		System.out.println("page====================="+page);
+		this.view = String.format(Constants.DOUBLE_PATH, domain, page);
 	}
 	
 	public void setDomain() {
 		String path = request.getServletPath();
-		domain = path.replace(".do", "");
-		domain = domain.substring(1);
+//		domain = path.replace(".do", "");
+		domain = path.replace(".do", "").substring(1);
 	}
 	
 	public void setPage() {

@@ -2,22 +2,38 @@
 html, body {
     margin: 0;
     height: 100%;
-    overflow: hidden;
+    /* verflow: hidden; */
 }
 .wrapper{
 	display: grid;
 	width: 100%;
 	height: 100%;
     grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 20% 60% 20%;
-    background-color : #2E6897;
+    grid-template-rows: 10% 80% 10%;
 }
+.container{
+	display: grid;
+	width: 100%;
+	height: 100%;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 10% 60% 10%;
+}
+.container div{border: 2px dotted green}
 /* .wrapper div{border : 1px dotted black} */
 #soccer_intro{
 	width: 100%;
-	height: 100%;
+	height: 100px;
 }
 #login_tab{
+	display: grid;
+	width: 100%;
+	height: 80%;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 50% 50%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+#position_tab{
 	display: grid;
 	width: 100%;
 	height: 80%;
@@ -34,6 +50,3 @@ html, body {
 #login_btn{width:100%; height: 100%}
 .input_text{width: 70%;height: 70px;margin-top: 70px;}
 #join_a{width:100px;margin: 0 auto}
-
-
-
